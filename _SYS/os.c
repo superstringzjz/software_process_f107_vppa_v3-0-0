@@ -1,5 +1,6 @@
 #include "stm32f10x_conf.h"
 #include "os.h"
+#include "base_interface.h"
 #include "usercode.h"
 
 u32  counter_system_run;     //用于提示系统运行指示灯的软件计数器   
@@ -48,6 +49,7 @@ void os_led_run(){
 
 void os_once(void){
 	os_thread_start();                       //系统线程启动
+	base_interface_init();                   //注册后端端口
 }
 void os_nrt(void){
 	os_led_run();
