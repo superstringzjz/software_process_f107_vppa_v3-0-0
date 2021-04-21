@@ -40,8 +40,8 @@ class	CPower{
 		int time_ac_current_dcen; //dcen时间   ms
 		int time_ac_current_dcep; //dcep时间   ms
 		int time_ac_current_zero; //过零时间   ms
+
 		int time_dc_delta;        //dc变化时间 ms
-	
 		int time_dc_delta_step;   //dc变化1步需要的时间 ms
 		int time_ac_delta;        //ac变化时间 ms
 		int time_ac_delta_step;   //ac变化1步需要的时间 ms
@@ -58,20 +58,19 @@ class	CPower{
 		float current_ac_dcep_delta;               //dcep变化
 		float current_ac_dcep_delta_step;
 		
+		u16 current_ac_dcen_goal;
+		u16 current_ac_dcep_goal;
 		u16 k_slope;             //单位斜坡因子
 
 		CPower(); //构造函数
 		~CPower();  //析构函数
 
 		void power_init();       
-    void power_on();
-		bool power_ignite_success();
-		void power_off();
 		
-		void power_dc(u16 current);
-		void power_ac(u16 current_dcen,u16 current_dcep,u16 current_zero,u16 time_decn,u16 time_dcep,u16 time_zero);
-		void power_ac_raise(u16 current_dcen_goal,u16 current_dcep_goal,u16 time,u16 k);
-		void power_ac_fall(u16 current_dcen_goal,u16 current_dcep_goal,u16 time,u16 k);
+		void power_dc();
+		void power_ac();
+		void power_ac_raise();
+		void power_ac_fall();
 
 		void power_process();
 };

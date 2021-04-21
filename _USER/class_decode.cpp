@@ -1,6 +1,7 @@
 #include "class_decode.h"
 
 CDecode::CDecode(){
+	real_current = 0;
 	da_current_set = 0;
 	counter_fast = 0;
 	counter_slow = 0;
@@ -12,11 +13,11 @@ CDecode::~CDecode(){
 void CDecode::decode_init(){
 }
 
-void CDecode::decode_current(float current){
+void CDecode::decode_current(){
 	float temp32;
 	u32   temp32_2;
 	u16   temp16;
-	temp32   = current*DA_WIDTH;
+	temp32   = real_current*DA_WIDTH;
 	temp32_2 = temp32;
 	if((temp32_2%FULL_CURRENT)>=(FULL_CURRENT>>1)) temp16 = temp32_2/FULL_CURRENT+1;
 	else                                           temp16 = temp32_2/FULL_CURRENT;

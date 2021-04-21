@@ -45,61 +45,30 @@ void CPower::power_init(){
 		
 }
 
-void CPower::power_on(){
-	status_power_on = true;
-	status_ignit_on = true;
-	status_power_now = POWER_ON;
-}
-
-bool CPower::power_ignite_success(){
-	return status_ignite_success;
-}
-
-void CPower::power_off(){
-		status_ignit_on = false;
-		current_dc_set = 0;
-		current_ac_dcen_set = 0;
-		current_ac_dcep_set = 0;
-		current_ac_zero_set = 0;
-		current_set = 0;
-		status_power_now = POWER_OFF;
-}
-
-void CPower::power_dc(u16 current){
-	current_dc_set = current;
+void CPower::power_dc(){
 	time_k = 0;
 	status_power_acdc = DC;
 	status_power_now = POWER_DC;
 }
 
-void CPower::power_ac(u16 current_dcen,u16 current_dcep,u16 current_zero,u16 time_decn,u16 time_dcep,u16 time_zero){
-	current_ac_dcen_set = current_dcen;
-	current_ac_dcep_set = current_dcep;
-	current_ac_zero_set = current_zero;
-	time_ac_current_dcen = time_decn;
-	time_ac_current_dcep = time_dcep;
-	time_ac_current_zero = time_zero;
+void CPower::power_ac(){
 	status_power_acdc = AC;
 	status_power_now = POWER_AC;
 }
-void CPower::power_ac_raise(u16 current_dcen_goal,u16 current_dcep_goal,u16 time,u16 k){
-	time_ac_delta = time;
-	k_slope = k;
+void CPower::power_ac_raise(){
 	time_ac_delta_step = time_ac_delta / k_slope;
-	current_ac_dcen_delta = current_dcen_goal - current_ac_dcen_set;
+	current_ac_dcen_delta = current_ac_dcen_goal - current_ac_dcen_set;
 	current_ac_dcen_delta_step = current_ac_dcen_delta / k_slope;
-	current_ac_dcep_delta = current_dcep_goal - current_ac_dcep_set;
+	current_ac_dcep_delta = current_ac_dcep_goal - current_ac_dcep_set;
 	current_ac_dcep_delta_step = current_ac_dcep_delta / k_slope;
 	status_power_acdc = AC;
 	status_power_now = POWER_AC_RAISE;
 }
-void CPower::power_ac_fall(u16 current_dcen_goal,u16 current_dcep_goal,u16 time,u16 k){
-	time_ac_delta = time;
-	k_slope = k;
+void CPower::power_ac_fall(){
 	time_ac_delta_step = time_ac_delta / k_slope;
-	current_ac_dcen_delta = current_ac_dcen_set - current_dcen_goal ;
+	current_ac_dcen_delta = current_ac_dcen_set - current_ac_dcen_goal ;
 	current_ac_dcen_delta_step = current_ac_dcen_delta / k_slope;
-	current_ac_dcep_delta = current_ac_dcep_set - current_dcep_goal;
+	current_ac_dcep_delta = current_ac_dcep_set - current_ac_dcep_goal;
 	current_ac_dcep_delta_step = current_ac_dcep_delta / k_slope;
 	status_power_acdc = AC;
 	status_power_now = POWER_AC_FALL;

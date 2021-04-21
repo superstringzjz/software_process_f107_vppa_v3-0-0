@@ -21,14 +21,11 @@ bool MSP_DEVICE_CLOCK_Init(void){
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD,ENABLE);   //GPIOD时钟
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE,ENABLE);   //GPIOE时钟
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);    //AFIO时钟
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);  //Usart1时钟
-
 	return true;
 }
 
 /*引脚重映射*/
 bool MSP_IO_REMAP_Init(void){
-	GPIO_PinRemapConfig(GPIO_Remap_USART1, ENABLE);    //Usart1重映射
 	return true;
 }
 
@@ -54,12 +51,6 @@ bool MSP_NVIC_Init(void){
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;             //允许中断
 	NVIC_Init(&NVIC_InitStructure);                             //中断初始化
 	
-	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;           //Usart1中断
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;   //优先级4
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;          //子优先级0
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;             //允许中断
-	NVIC_Init(&NVIC_InitStructure);                             //中断初始化
-
 	return true;
 }                                        
 

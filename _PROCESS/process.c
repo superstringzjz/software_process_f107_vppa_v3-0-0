@@ -5,8 +5,7 @@ int main(){
 	bool status;
 	status = os_init();
 	if(status == false) return 1;
-	status = user_init();
-	if(status == false) return 1;
+	user_init();
 	os_once();
 	user_once();
 	for(;;){

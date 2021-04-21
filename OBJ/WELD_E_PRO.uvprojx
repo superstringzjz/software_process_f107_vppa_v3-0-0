@@ -470,14 +470,14 @@
               <FilePath>..\_SYS\os.c</FilePath>
             </File>
             <File>
-              <FileName>com.h</FileName>
+              <FileName>base_interface.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\_SYS\com.h</FilePath>
+              <FilePath>..\_SYS\base_interface.h</FilePath>
             </File>
             <File>
-              <FileName>com.c</FileName>
+              <FileName>base_interface.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\_SYS\com.c</FilePath>
+              <FilePath>..\_SYS\base_interface.c</FilePath>
             </File>
             <File>
               <FileName>class_board.h</FileName>
@@ -559,16 +559,6 @@
               <FileType>1</FileType>
               <FilePath>..\_BSP\BSP_DAC.c</FilePath>
             </File>
-            <File>
-              <FileName>BSP_USART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\_BSP\BSP_USART.h</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_USART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_BSP\BSP_USART.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -628,16 +618,6 @@
               <FileName>MSP_DAC_Config.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\_MSP\MSP_DAC_Config.c</FilePath>
-            </File>
-            <File>
-              <FileName>MSP_USART_Config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\_MSP\MSP_USART_Config.h</FilePath>
-            </File>
-            <File>
-              <FileName>MSP_USART_Config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\_MSP\MSP_USART_Config.c</FilePath>
             </File>
           </Files>
         </Group>

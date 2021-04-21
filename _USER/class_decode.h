@@ -20,12 +20,13 @@ class	CDecode{
 		CDecode(void); //构造函数
 		~CDecode(void);  //析构函数
 	
+		float real_current;
 		u16 da_current_set;
 		u16 counter_fast;
 		u16 counter_slow;
 	
 		void decode_init(void);
-	  void decode_current(float current);
+	  void decode_current(void);
 		bool decode_time_fast(void);
 		bool decode_time_slow(void);
 };
