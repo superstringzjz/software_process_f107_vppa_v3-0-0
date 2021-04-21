@@ -3,16 +3,14 @@
 
 #include "class_process_controller.h"
 #include "class_board.h"
-#include "class_decode.h"
-#include "class_power.h"
 
 class	CProcontroller{
 	public:
-		CProcessBorad  m_board;
-		CDecode m_decode;
-		CPower  m_power;
+		CProcessBorad*  controller_board;
 	
-		int  time_process_now;
+		u16  time_process_fast;
+		u16  time_process_slow;
+		u16  time_process_now;
 	
 		CProcontroller(void);
 		~CProcontroller(void);

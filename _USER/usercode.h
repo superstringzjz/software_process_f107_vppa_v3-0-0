@@ -9,7 +9,7 @@ extern "C" {
 #include "os.h"
 #include "class_board.h"	
 	
-bool user_init(void);
+void user_init(void);
 void user_once(void);
 void user_ntr(void);
 void thread_hmi_5000us(void);
