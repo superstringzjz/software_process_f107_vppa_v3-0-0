@@ -1,7 +1,5 @@
 #include "class_board.h"
 
-CProcessBorad* processboard = NULL;
-
 CProcessBorad::CProcessBorad(void){
 }
 
